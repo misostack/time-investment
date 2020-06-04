@@ -22,6 +22,26 @@ const EditTodo = withRouter(() => {
   return <h3>Edit ID: {id}</h3>;
 });
 
+const ListTodoByCategory = withRouter(() => {
+  let { id } = useParams();
+  return (
+    <>
+      <h3>List Todo from category {id}</h3>
+      ...
+    </>
+  );
+});
+
+const ListTodoByGroup = withRouter(() => {
+  let { id } = useParams();
+  return (
+    <>
+      <h3>List Todo from group {id}</h3>
+      ...
+    </>
+  );
+});
+
 function App() {
   return (
     <Router history={history}>
@@ -39,6 +59,30 @@ function App() {
           <li>
             <Link to="/todos/1/edit">Edit todo 1</Link>
           </li>
+          <li>
+            <Link to="/categories/1/todos">Todos from Category 1</Link>
+          </li>
+          <li>
+            <Link to="/groups/1/todos">Todos from Group 1</Link>
+          </li>
+          {["groups", "categories"].map((res) => (
+            <>
+              <li>
+                <Link style={{ textTransform: "capitalize" }} to={"/" + res}>
+                  {res}
+                </Link>
+              </li>
+              <li>
+                <Link to={"/" + res + "/new"}>New {res}</Link>
+              </li>
+              <li>
+                <Link to={"/" + res + "/1"}>View {res} 1</Link>
+              </li>
+              <li>
+                <Link to={"/" + res + "/1/edit"}>Edit {res} 1</Link>
+              </li>
+            </>
+          ))}
         </ul>
       </>
       <Switch>
@@ -53,6 +97,12 @@ function App() {
         </Route>
         <Route exact path="/todos/:id" children={ViewTodo} />
         <Route exact path="/todos/:id/edit" children={EditTodo} />
+        <Route
+          exact
+          path="/categories/:id/todos"
+          children={ListTodoByCategory}
+        />
+        <Route exact path="/groups/:id/todos" children={ListTodoByGroup} />
       </Switch>
     </Router>
   );
