@@ -21,9 +21,19 @@ yarn add react-router-dom
 
 > To allow useParams or useRouteMatch must wrap your component with Router HOC like this
 
+- https://reacttraining.com/react-router/web/guides/quick-start
 - Ref : https://stackoverflow.com/questions/58435074/react-router-dom-invalid-hook-call-hooks-can-only-be-called-inside-of-the-body
 - https://knowbody.github.io/react-router-docs/api/Link.html
+- https://css-tricks.com/learning-react-router/
 
 ```js
 export default withRouter(Catalog);
+```
+
+## Stylesheets
+
+- CSS Framework : https://bulma.io/documentation/customize/with-node-sass/#3-create-a-sass-file
+
+```bash
+yarn add node-sass bulma
 ```

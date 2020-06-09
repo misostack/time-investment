@@ -1,6 +1,6 @@
 import React from "react";
 import { createBrowserHistory } from "history";
-import "./App.css";
+import "./App.scss";
 import {
   BrowserRouter as Router,
   Link,
